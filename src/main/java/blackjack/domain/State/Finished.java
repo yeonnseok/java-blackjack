@@ -17,4 +17,16 @@ public abstract class Finished extends Started {
     public State stay() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public boolean isFinished() {
+        return true;
+    }
+    
+    @Override
+    public int profit(int money) {
+        return (int)(ratio() * money);
+    }
+
+    protected abstract double ratio();
 }

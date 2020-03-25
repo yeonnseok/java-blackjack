@@ -6,4 +6,9 @@ public class Stay extends Finished {
     public Stay(Cards cards) {
         super(cards);
     }
+
+    @Override
+    protected double ratio() {
+        return 1.0;
+    }
 }

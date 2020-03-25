@@ -6,4 +6,9 @@ public class BlackJack extends Finished{
     public BlackJack(Cards cards) {
         super(cards);
     }
+
+    @Override
+    protected double ratio() {
+        return 1.5;
+    }
 }

@@ -3,7 +3,7 @@ package blackjack.domain.State;
 import blackjack.domain.PlayingCard.Card;
 import blackjack.domain.PlayingCard.Cards;
 
-public class Hit extends Started {
+public class Hit extends Running {
     public Hit(Cards cards) {
         super(cards);
     }

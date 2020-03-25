@@ -6,4 +6,9 @@ public class Bust extends Finished {
     public Bust(Cards cards) {
         super(cards);
     }
+
+    @Override
+    protected double ratio() {
+        return -1.0;
+    }
 }
