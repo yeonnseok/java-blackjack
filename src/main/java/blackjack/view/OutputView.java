@@ -1,6 +1,10 @@
 package blackjack.view;
 
-import blackjack.domain.*;
+import blackjack.domain.PlayingCard.Card;
+import blackjack.domain.PlayingCard.Cards;
+import blackjack.domain.users.Dealer;
+import blackjack.domain.users.Players;
+import blackjack.domain.users.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +53,7 @@ public class OutputView {
 
     public static void printUserCards(User player) {
         System.out.println(String.format(
-                USER_INFORMATION_FORMAT, player.getName(), combineCards(player.getRawCards())));
+                USER_INFORMATION_FORMAT, player.getName(), combineCards(player.getCards())));
     }
 
     private static String combineCards(List<Card> cards) {
@@ -78,18 +82,7 @@ public class OutputView {
         for (User user : users) {
             System.out.println(String.format(
                     USER_FINAL_INFORMATION_FORMAT,
-                    user.getName(), combineCards(user.getRawCards()), user.getCards().calculateScore()));
+                    user.getName(), combineCards(user.getCards()), user.getScore()));
         }
     }
-
-    public static void printGameResult(GameResult gameResult) {
-        System.out.println(NEW_LINE);
-        System.out.println(FINAL_RESULT_HEADER_MESSAGE);
-
-        gameResult.getGameResult()
-                .keySet()
-                .forEach(user -> System.out.println(String.format("%s : %d",
-                        user.getName(), gameResult.getProfit(user))));
-    }
-
 }

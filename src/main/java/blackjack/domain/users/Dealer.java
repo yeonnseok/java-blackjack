@@ -1,11 +1,10 @@
-package blackjack.domain;
+package blackjack.domain.users;
 
-import blackjack.domain.strategy.DealerStatusStrategy;
+import blackjack.domain.PlayingCard.Card;
 
 import java.util.List;
 
 public class Dealer extends User {
-    public static final int DEALER_CRITICAL_SCORE = 16;
     private static final int DEALER_INITIAL_CARDS_SIZE = 1;
     private static final String KOREAN_NAME = "딜러";
 
@@ -22,18 +21,13 @@ public class Dealer extends User {
         return dealerInstance;
     }
 
-    public PlayerResult getResultOf(Player player) {
-        DealerStatusStrategy dealerStatusStrategy = cards.getStatus().getDealerStatusStrategy();
-        return dealerStatusStrategy.calculateResultByPlayerStatus(this, player);
-    }
-
     @Override
     public List<Card> getInitialCards() {
-        return cards.getInitialCards(DEALER_INITIAL_CARDS_SIZE);
+        return state.cards().getInitialCards(DEALER_INITIAL_CARDS_SIZE);
     }
 
     @Override
     public boolean isReceivableOneMoreCard() {
-        return cards.isScoreUnder(DEALER_CRITICAL_SCORE);
+        return state.cards().isDealerHit();
     }
 }

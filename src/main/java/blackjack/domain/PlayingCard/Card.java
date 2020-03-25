@@ -1,4 +1,4 @@
-package blackjack.domain;
+package blackjack.domain.PlayingCard;
 
 import java.util.Objects;
 
@@ -17,6 +17,10 @@ public class Card implements Comparable<Card>{
         if (isAvailableAceUpperPoint(score)) {
             return ACE_UPPER_POINT;
         }
+        return type.getPoint();
+    }
+
+    public int getPoint() {
         return type.getPoint();
     }
 

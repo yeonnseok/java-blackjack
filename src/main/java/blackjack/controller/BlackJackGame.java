@@ -1,6 +1,9 @@
 package blackjack.controller;
 
-import blackjack.domain.*;
+import blackjack.domain.PlayingCard.CardDeck;
+import blackjack.domain.PlayingCard.CardFactory;
+import blackjack.domain.PlayingCard.Score;
+import blackjack.domain.users.*;
 import blackjack.exception.ResponseNotMatchException;
 import blackjack.view.InputView;
 import blackjack.view.OutputView;
@@ -22,7 +25,6 @@ public class BlackJackGame {
         enrollPlayers();
         distributeCards();
         play();
-        calculateResult();
     }
 
     private void enrollPlayers() {
@@ -75,13 +77,7 @@ public class BlackJackGame {
     private void playDealerTurn() {
         if (dealer.isReceivableOneMoreCard()) {
             dealer.receiveOneMoreCard(cardDeck);
-            OutputView.printDealerPlayConfirmMessage(Dealer.DEALER_CRITICAL_SCORE);
+            OutputView.printDealerPlayConfirmMessage(Score.DEALER_CRITICAL_SCORE);
         }
-    }
-
-    private void calculateResult() {
-        OutputView.printUserFinalScore(dealer, players);
-        GameResult gameResult = GameResult.calculateGameResult(dealer, players);
-        OutputView.printGameResult(gameResult);
     }
 }

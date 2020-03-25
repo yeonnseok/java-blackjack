@@ -1,4 +1,4 @@
-package blackjack.domain;
+package blackjack.domain.users;
 
 import blackjack.exception.ResponseNotMatchException;
 

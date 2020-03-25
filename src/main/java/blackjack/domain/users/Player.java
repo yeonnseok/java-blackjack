@@ -1,5 +1,7 @@
-package blackjack.domain;
+package blackjack.domain.users;
 
+import blackjack.domain.PlayingCard.Card;
+import blackjack.domain.State.Hit;
 import blackjack.exception.BettingMoneyNegativeException;
 import blackjack.exception.UserNameEmptyException;
 
@@ -38,11 +40,11 @@ public class Player extends User {
 
     @Override
     public List<Card> getInitialCards() {
-        return cards.getInitialCards(USER_INITIAL_CARDS_SIZE);
+        return state.cards().getInitialCards(USER_INITIAL_CARDS_SIZE);
     }
 
     @Override
     public boolean isReceivableOneMoreCard() {
-        return cards.isStatusHitable();
+        return state.getClass().equals(Hit.class);
     }
 }

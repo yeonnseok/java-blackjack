@@ -1,4 +1,4 @@
-package blackjack.domain;
+package blackjack.domain.PlayingCard;
 
 import blackjack.exception.CardDeckDuplicatedException;
 import blackjack.exception.CardDeckEmptyException;

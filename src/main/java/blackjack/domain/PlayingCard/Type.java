@@ -1,4 +1,4 @@
-package blackjack.domain;
+package blackjack.domain.PlayingCard;
 
 public enum Type {
     ACE(1, "A"),
